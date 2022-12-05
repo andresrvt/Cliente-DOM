@@ -1,17 +1,31 @@
-/* 003diagonal.html/.js: Seleccionar todas las celdas diagonales Escribe el código para 
-pintar todas las celdas diagonales de rojo. Necesitarás obtener todas las <td> de la 
-<table> y pintarlas usando el código:
-td debe ser la referencia a la celda de la tabla
-td.style.backgroundColor = 'red'; El resultado debe ser:  */
+/* 004searchElements.html/.js:Aquí está el documento con la tabla y el formulario.
+¿Cómo encontrar?...
+La tabla con id="age-table".
+Tdos los elementos label dentro de la tabla (debería haber 3).
+El primer td en la tabla (con la palabra “Age”).
+El form con name="search".
+El primer input en ese formulario.
+El último input en ese formulario.
+Abra la página index.html en una ventana separada y haga uso de las herramientas del 
+navegador. */
 
 "use strict";
 
-let tds = document.querySelectorAll("td");
-let numeroCeldas = document.querySelectorAll("tr");
+let tablaID = document.getElementById("age-table");
+tablaID.style.background = "red";
 
-for (let index = 0; index < tds.length; index++) {
-    // Para rellenar la diagonal en una tabla cuadrada, buscaremos la longitud de filas y le añadiremos uno. 
-    if (index%(numeroCeldas.length+1)==0) {
-        tds[index].style.backgroundColor = 'red';
-    }
-}
+let labels = document.querySelectorAll("td > label");
+alert(labels.length);
+
+let firstTd = document.querySelector("td");
+alert(firstTd.textContent); 
+
+let formSearch = document.querySelector("form[name ='search']");
+formSearch.style.background = "blue";
+console.log(formSearch);
+
+let firstInput = document.querySelector("form[name = 'search'] > label > input");
+console.log(firstInput);
+
+let lastInput = document.querySelector("form[name = 'search'] > input:last-child");
+console.log(lastInput);
